@@ -32,7 +32,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!' });
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/crowdsourced-reviews')
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
   console.log('Connected to MongoDB');
   app.listen(PORT, () => {

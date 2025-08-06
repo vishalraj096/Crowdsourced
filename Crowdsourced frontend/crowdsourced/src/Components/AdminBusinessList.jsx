@@ -1,16 +1,12 @@
 import React from "react";
 
-const mockBusinesses = [
-  { id: 1, name: "Pizza Place", category: "Restaurant" },
-  { id: 2, name: "Book Shop", category: "Shop" },
-];
-
-const AdminBusinessList = () => {
+const AdminBusinessList = ({ businesses = [] }) => {
   return (
     <div className="bg-white p-6 rounded-xl shadow border border-gray-100">
       <h2 className="text-xl font-bold mb-4 text-blue-700">Manage Businesses</h2>
-      {mockBusinesses.map((biz) => (
-        <div key={biz.id} className="flex justify-between items-center mb-3 p-3 bg-gray-50 rounded-lg">
+      {businesses.length === 0 && <div className="text-gray-500">No businesses found.</div>}
+      {businesses.map((biz) => (
+        <div key={biz._id || biz.id} className="flex justify-between items-center mb-3 p-3 bg-gray-50 rounded-lg">
           <div>
             <span className="font-semibold text-gray-800">{biz.name}</span> ({biz.category})
           </div>

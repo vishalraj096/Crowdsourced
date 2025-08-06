@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import SearchBar from "../Components/SearchBar";
 import BusinessCard from "../Components/Bussinesscard";
-
-const mockBusinesses = [
-  { id: 1, name: "Pizza Place", category: "Restaurant", location: "Downtown", rating: 4.5 },
-  { id: 2, name: "Book Shop", category: "Shop", location: "Main St", rating: 4.2 },
-  { id: 3, name: "Laundry Express", category: "Service", location: "Uptown", rating: 3.8 },
-];
+import api from "../Components/api";
 
 const Home = () => {
+  const [businesses, setBusinesses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    api.get("/businesses")
+      .then(res => {
+        setBusinesses(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError("Failed to load businesses");
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       <Navbar />
@@ -24,8 +35,13 @@ const Home = () => {
         <SearchBar />
       </section>
       <section className="mt-10 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {mockBusinesses.map((biz) => (
-          <BusinessCard key={biz.id} {...biz} />
+        {loading && <div className="col-span-full text-center text-gray-500">Loading businesses...</div>}
+        {error && <div className="col-span-full text-center text-red-500">{error}</div>}
+        {!loading && !error && businesses.length === 0 && (
+          <div className="col-span-full text-center text-gray-500">No businesses found.</div>
+        )}
+        {!loading && !error && businesses.map((biz) => (
+          <BusinessCard key={biz._id || biz.id} {...biz} />
         ))}
       </section>
     </div>

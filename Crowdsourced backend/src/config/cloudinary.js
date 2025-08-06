@@ -1,13 +1,12 @@
 import { v2 as cloudinary } from 'cloudinary';
 
-// Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Upload image to Cloudinary
+
 export const uploadImage = async (filePath, folder = 'crowdsourced') => {
   try {
     const result = await cloudinary.uploader.upload(filePath, {
@@ -28,7 +27,7 @@ export const uploadImage = async (filePath, folder = 'crowdsourced') => {
   }
 };
 
-// Delete image from Cloudinary
+
 export const deleteImage = async (publicId) => {
   try {
     const result = await cloudinary.uploader.destroy(publicId);
