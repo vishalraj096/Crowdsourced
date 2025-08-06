@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Mario's Pizza",
+    "description": "Best pizza in town with fresh ingredients",
+    "category": "restaurant",
+    "location": "New York, NY",
+    "phone": "555-123-4567",
+    "image": "/images/marios-pizza.jpg",
+    "averageRating": 4.5,
+    "totalReviews": 25
+  },
+  {
+    "name": "Coffee Bean Cafe",
+    "description": "Cozy coffee shop with great WiFi",
+    "category": "cafe",
+    "location": "San Francisco, CA",
+    "phone": "555-987-6543",
+    "image": "/images/coffee-bean.jpg",
+    "averageRating": 4.2,
+    "totalReviews": 18
+  },
+  {
+    "name": "TechFix Repair",
+    "description": "Quick phone and laptop repairs",
+    "category": "service",
+    "location": "Austin, TX",
+    "phone": "555-456-7890",
+    "image": "/images/techfix.jpg",
+    "averageRating": 4.8,
+    "totalReviews": 12
+  },
+  {
+    "name": "Fashion Store",
+    "description": "Trendy clothing and accessories",
+    "category": "shop",
+    "location": "Los Angeles, CA",
+    "phone": "555-321-6543",
+    "image": "/images/fashion-store.jpg",
+    "averageRating": 3.9,
+    "totalReviews": 8
+  },
+  {
+    "name": "Quick Burger",
+    "description": "Fast and delicious burgers",
+    "category": "restaurant",
+    "location": "Chicago, IL",
+    "phone": "555-111-2222",
+    "image": "/images/quick-burger.jpg",
+    "averageRating": 4.1,
+    "totalReviews": 33
+  }
+]
